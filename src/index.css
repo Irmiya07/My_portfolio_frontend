@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+
+
+
+/* Navbar Theme */
+:root {
+  --nav-bg: rgba(255, 255, 255, 0.6);
+  --nav-text: black;
+  --nav-border: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --nav-bg: rgba(0, 0, 0, 0.6);
+  --nav-text: white;
+  --nav-border: rgb(255, 255, 255);
+}
+
+:root {
+  /* 🌞 LIGHT MODE */
+
+  --page-bg: #E9EEF5;        /* soft neutral background */
+  --page-text: #0F172A;      
+  --page-card: #F8FAFC;      
+  --page-border: #CBD5E1;    
+
+  /* Dark accent colors */
+  --page-primary: #3730A3;   /* deep indigo */
+  --page-accent: #0F766E;    /* dark teal */
+  --page-highlight: #6D28D9; /* deep violet */
+
+  --page-muted: #475569;
+}
+
+.dark {
+  /* 🌙 DARK MODE */
+
+  --page-bg: #0B1120;
+  --page-text: #E2E8F0;
+  --page-card: #111827;
+  --page-border: #1F2937;
+
+  --page-primary: #6366F1;
+  --page-accent: #22D3EE;
+  --page-highlight: #A78BFA;
+
+  --page-muted: #94A3B8;
+}
+
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Remove default spacing */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
