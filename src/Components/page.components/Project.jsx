@@ -37,71 +37,99 @@ useEffect(() => {
   fetchProjects();
 }, []);
   return (
-    <div className="min-h-screen bg-(--page-bg)/90 text-(--page-text) px-4 sm:px-8 lg:px-16 py-12 scroll-smooth">
-      {/* Page Header */}
-      {/* Page Header */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-16"
-      >
-        {/* Animated Title (Looping Effect) */}
-        <motion.h1
-          className="text-3xl sm:text-5xl font-extrabold bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 
-    text-transparent bg-clip-text"
-          animate={{
-            y: [0, -6, 0],
-            scale: [1, 1.03, 1],
-            opacity: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          My Projects
-        </motion.h1>
+<div className="
+min-h-screen bg-(--page-bg)/90 text-(--page-text)
+px-3 sm:px-6 lg:px-10 xl:px-16
+py-10 sm:py-14 lg:py-16
+scroll-smooth
+">
 
-        {/* Animated Subtitle */}
-        <p
-          className="mt-4 text-base sm:text-lg opacity-80 max-w-2xl mx-auto text-left sm:text-left md:text-center lg:text-center lg:opacity-80"
-        >
-          A showcase of my work in full-stack development, web applications, and
-          AI/ML, highlighting real-world problem solving, scalable system
-          design, and modern user-focused interfaces built using current
-          technologies.
-        </p>
-      </motion.div>
-
-      {/* Grid */}
-<motion.div
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: false, amount: 0.15 }}
-  variants={{
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  }}
-  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-12"
->
-{Array.isArray(projects) &&
-  projects.map((item, index) => (
-    <motion.div
-      key={index}
-      variants={cardVariants}
-      whileHover={{ scale: 1.05, rotate: 1 }}
+  {/* Page Header */}
+  <motion.div
+    initial={{ opacity: 0, scale: 0.95 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.7 }}
+    className="text-center mb-12 sm:mb-16 lg:mb-20 max-w-5xl mx-auto"
+  >
+    {/* Animated Title */}
+    <motion.h1
+      className="
+      text-2xl
+      min-[400px]:text-3xl
+      sm:text-4xl
+      md:text-5xl
+      font-extrabold
+      bg-linear-to-r from-blue-500 via-purple-500 to-pink-500
+      text-transparent bg-clip-text
+      "
+      animate={{
+        y: [0, -6, 0],
+        scale: [1, 1.03, 1],
+        opacity: [1, 0.9, 1],
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
     >
-      <ProjectCard item={item} />
-    </motion.div>
-))}
-</motion.div>
-    </div>
+      My Projects
+    </motion.h1>
+
+    {/* Subtitle */}
+    <p
+      className="
+      mt-4
+      text-sm
+      min-[400px]:text-base
+      sm:text-lg
+      opacity-80
+      max-w-2xl
+      mx-auto
+      text-center
+      "
+    >
+      A showcase of my work in full-stack development, web applications, and
+      AI/ML, highlighting real-world problem solving, scalable system
+      design, and modern user-focused interfaces built using current
+      technologies.
+    </p>
+  </motion.div>
+
+  {/* Projects Grid */}
+  <motion.div
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: false, amount: 0.15 }}
+    variants={{
+      hidden: {},
+      show: { transition: { staggerChildren: 0.08 } },
+    }}
+    className="
+    max-w-7xl mx-auto
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-3
+    gap-6
+    sm:gap-8
+    lg:gap-10
+    xl:gap-12
+    "
+  >
+    {Array.isArray(projects) &&
+      projects.map((item, index) => (
+        <motion.div
+          key={index}
+          variants={cardVariants}
+          whileHover={{ scale: 1.04 }}
+        >
+          <ProjectCard item={item} />
+        </motion.div>
+      ))}
+  </motion.div>
+
+</div>
   );
 };
 export default Project;

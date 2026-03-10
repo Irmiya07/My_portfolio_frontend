@@ -38,78 +38,90 @@ useEffect(() => {
   fetchCertificates();
 }, []);
   return (
-    <div className="min-h-screen bg-(--page-bg)/60 text-(--page-text) px-4 sm:px-8 lg:px-16 py-12">
-      {/*  Header */}
-      <div
-       
-        className="text-center mb-16"
-      >
-        {/* Animated Title (Loop Effect) */}
-        <motion.h1
-          className="text-3xl sm:text-5xl font-extrabold 
-          bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 
-          text-transparent bg-clip-text"
-          animate={{
-            y: [0, -6, 0],
-            scale: [1, 1.03, 1],
-            opacity: [1, 0.9, 1],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          My Certifications
-        </motion.h1>
+<div className="
+min-h-screen bg-(--page-bg)/60 text-(--page-text)
+px-3 sm:px-6 lg:px-10 xl:px-16
+py-10 sm:py-14 lg:py-16
+">
 
-        {/* Animated Subtitle */}
-        <p
-          className="mt-4 text-base sm:text-lg opacity-80 max-w-2xl mx-auto text-left sm:text-left md:text-center lg:text-center lg:opacity-80"
-        >
-          A collection of certifications showcasing my continuous learning in
-          programming, data structures, web development, and AI/ML, reflecting
-          my commitment to strengthening technical skills and staying updated
-          with modern technologies.
-        </p>
-      </div>
+  {/* Header */}
+  <div className="text-center mb-12 sm:mb-16 lg:mb-20 max-w-4xl mx-auto">
 
-      {/* Certificates Grid */}
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={{
-          hidden: {},
-          show: {
-            transition: {
-              staggerChildren: 0.08,
-            },
-          },
-        }}
-        className="
+    {/* Animated Title */}
+    <motion.h1
+      className="
+      text-2xl
+      min-[400px]:text-3xl
+      sm:text-4xl
+      md:text-5xl
+      font-extrabold
+      bg-linear-to-r from-blue-500 via-purple-500 to-pink-500
+      text-transparent bg-clip-text
+      "
+      animate={{
+        y: [0, -6, 0],
+        scale: [1, 1.03, 1],
+        opacity: [1, 0.9, 1],
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      My Certifications
+    </motion.h1>
+
+    {/* Subtitle */}
+    <p className="
+    mt-4
+    text-sm
+    min-[400px]:text-base
+    sm:text-lg
+    opacity-80
+    max-w-2xl mx-auto
+    text-center
+    ">
+      A collection of certifications showcasing my continuous learning in
+      programming, data structures, web development, and AI/ML, reflecting
+      my commitment to strengthening technical skills and staying updated
+      with modern technologies.
+    </p>
+  </div>
+
+  {/* Certificates Grid */}
+  <motion.div
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, amount: 0.1 }}
+    variants={{
+      hidden: {},
+      show: { transition: { staggerChildren: 0.08 } },
+    }}
+    className="
+    max-w-7xl mx-auto
     grid
-    sm:grid-cols-1
-    md:grid-cols-2
+    grid-cols-1
+    sm:grid-cols-2
     lg:grid-cols-3
     xl:grid-cols-4
+    gap-6 sm:gap-8 lg:gap-10
     items-stretch
-    gap-6
-  "
-      >
-{Array.isArray(certificates) &&
-  certificates.map((item, index) => (
-    <motion.div
-      key={index}
-      variants={cardVariants}
-      whileHover={{ scale: 1.05, rotate: 1 }}
-      className="w-full"
-    >
-      <CertificateCard item={item} />
-    </motion.div>
-))}
-      </motion.div>
-    </div>
+    "
+  >
+    {Array.isArray(certificates) &&
+      certificates.map((item, index) => (
+        <motion.div
+          key={index}
+          variants={cardVariants}
+          whileHover={{ scale: 1.03 }}
+          className="w-full"
+        >
+          <CertificateCard item={item} />
+        </motion.div>
+      ))}
+  </motion.div>
+</div>
   );
 };
 export default Certificate;

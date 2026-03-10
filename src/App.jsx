@@ -8,7 +8,6 @@ import ProtectedRoute from './Components/common/ProtectedRoute'
 import {NaviBar} from "./Components/Layout/NaviBar";
 
 import { ProjectForm } from "./Pages/admin/ProjectForm"
-import { SkillForm } from "./Pages/admin/SkillForm"
 import { CertificateForm } from "./Pages/admin/CertificateForm"
 import {PageNotFound} from "./Pages/PageNotFound"
 import { useEffect } from 'react'
@@ -24,7 +23,9 @@ function App() {
   return (
     <>
       <NaviBar />
-      <div className='min-h-screen bg-(--page-bg) p-15'>
+      <div className='min-h-screen bg-(--page-bg)
+px-3 sm:px-5 lg:px-8
+py-4 sm:py-5'>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
@@ -40,10 +41,6 @@ function App() {
         <Route path="/admin/project-form" element={
           <ProtectedRoute>
             <ProjectForm />
-          </ProtectedRoute>} />
-        <Route path="/admin/skill-form" element={
-          <ProtectedRoute>
-            <SkillForm />
           </ProtectedRoute>} />
         <Route path="/admin/certificate-form" element={
           <ProtectedRoute>

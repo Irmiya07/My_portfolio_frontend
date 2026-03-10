@@ -31,26 +31,57 @@ const Home = () => {
   }
 
   return (
-    <div id="hero" className="min-h-screen flex flex-col items-center justify-center">
-      {/*hero section*/}
-      <section className="h-full w-full min-h-screen bg-(--page-bg) flex items-center justify-center px-6 py-16">
-      <Hero/>
-      </section>
-      {/*Certifications section*/}
-      <section id="projects" >
-          <Project/>
-      </section>
-      <section id="certificates">
-        <Certificate/>
-      </section>
-      <section id="skills">
-        <Skill/>
-      </section>
-      <section id="contact" className="w-full max-w-2xl">
-        <Contact/>
-      </section>
-      <Footer/>
-    </div>
+<div className="min-h-screen flex flex-col bg-(--page-bg)">
+
+  {/* HERO */}
+  <section
+    id="hero"
+    className="
+    min-h-screen flex items-center justify-center
+    px-3 sm:px-6 lg:px-8
+    "
+  >
+    <Hero />
+  </section>
+
+  {/* PROJECTS */}
+  <section
+    id="projects"
+    className="px-3 sm:px-6 lg:px-8 py-12"
+  >
+    <Project />
+  </section>
+
+  {/* CERTIFICATES */}
+  <section
+    id="certificates"
+    className="px-3 sm:px-6 lg:px-8 py-12"
+  >
+    <Certificate />
+  </section>
+
+  {/* SKILLS */}
+  <section
+    id="skills"
+    className="px-3 sm:px-6 lg:px-8 py-12"
+  >
+    <Skill />
+  </section>
+
+  {/* CONTACT */}
+  <section
+    id="contact"
+    className="
+    min-h-screen flex items-center justify-center
+    px-3 sm:px-6 lg:px-8
+    "
+  >
+    <Contact />
+  </section>
+
+  <Footer />
+
+</div>
   );
 };
 

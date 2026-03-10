@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { getProjects } from "../../apis/ProjectService";
-import { getSkills } from "../../apis/SkillService";
+
 import { getCertificates } from "../../apis/CertificateService";
 
 import ProjectCard from "../../Components/cards/ProjectCard";
-import SkillCard from "../../Components/cards/SkillCard";
+
 import CertificateCard from "../../Components/cards/CertificateCard";
 
 const Dashboard = () => {
   const navigate = useNavigate();
 
   const [projects, setProjects] = useState([]);
-  const [skills, setSkills] = useState([]);
   const [certificates, setCertificates] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -22,15 +21,14 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [projectData, skillData, certificateData] =
+        const [projectData, certificateData] =
           await Promise.all([
             getProjects(),
-            getSkills(),
+
             getCertificates(),
           ]);
 
         setProjects(projectData || []);
-        setSkills(skillData || []);
         setCertificates(certificateData || []);
       } catch (error) {
         console.error("Error fetching dashboard data:", error);
@@ -57,12 +55,6 @@ const Dashboard = () => {
       CardComponent: ProjectCard,
     },
     {
-      title: "Skills",
-      data: skills,
-      navigateTo: "/admin/skill-form",
-      CardComponent: SkillCard,
-    },
-    {
       title: "Certificates",
       data: certificates,
       navigateTo: "/admin/certificate-form",
@@ -78,6 +70,7 @@ const Dashboard = () => {
         text-(--page-text)
         px-4 sm:px-6 lg:px-12
         py-6 sm:py-8
+        xl:py-15
       "
     >
       {sections.map((section, index) => {
