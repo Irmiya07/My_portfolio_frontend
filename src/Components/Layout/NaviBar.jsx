@@ -53,9 +53,9 @@ shadow-lg
   ">
 
     {/* Home Icon */}
-    <NavLink to="/">
-      <House className="size-5 sm:size-6 text-(--nav-text)" />
-    </NavLink>
+    <Link to="hero" smooth duration={500} offset={-80}>
+      <House className="size-5 sm:size-6 text-(--nav-text) cursor-pointer" />
+    </Link>
 
     {/* Center Name */}
     <h1 className="
